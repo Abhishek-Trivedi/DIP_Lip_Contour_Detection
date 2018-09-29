@@ -18,3 +18,12 @@ A project to implement efficient lip contour detection.
 ### Results: Accurate lip contour extraction revealing shape detials of the lip boundaries.
 
 ### Milestones:
+1) Converting RGB to YIQ : 3 Oct
+2) Dividing lips into upper and lower part : 10 Oct
+3) Segmentation and Thresholding : 15 OCt
+4) Active Contouring : 19 Oct
+5) Boundary Detection of lips : 23 Oct
+6) Final testing on data : 27 Oct
+
+### Tasks by each :
+Odd numbers will be done by Prajwal and Even number tasks will be done by Abhishek.
