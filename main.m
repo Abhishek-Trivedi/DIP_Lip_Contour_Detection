@@ -43,16 +43,29 @@ for x = 1:sz(2)
         if (a*x + b - y) > 0
             Q_upper(y,x) = q_com(y,x);
         else
+            Q_upper(y,x) = 0;
+        end
+        if (a*x + b -y ) < 0
             Q_lower(y,x) = q_com(y,x);
+        else
+            Q_lower(y,x) = 0;
         end
     end
 end
-%% Thresholding
 
+%% Thresholding
+%for Upper lip
+T_u = graythresh(Q_upper);
+Q_upppr = imbinarize(Q_upper,level);
+% imtool(Q_upppr);
+%for Lower lip
+%----%
 %% Contour
 SE_closing = strel('disk',10);
 SE_opening = strel('disk',5);
-img = imclose(BW,SE_closing);
-img = imopen(img,SE_opening);
-% imshow(img);
-% imcontour(img);
+%Contouring upper lip
+Q_upper = imclose(Q_upppr,SE_closing);
+Q_upper = imopen(Q_upper,SE_opening);
+[Q_up_Cont , h_up] = imcontour(Q_upper);
+% %Contouring lower lip
+% %---%
