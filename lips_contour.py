@@ -4,7 +4,7 @@
 # In[2]:
 
 import cv2
-from PIL import Image
+# from PIL import Image
 import numpy as np 
 from matplotlib import pyplot as plt 
 from skimage import measure
@@ -14,10 +14,11 @@ import colorsys
 
 # In[3]:
 
-img = cv2.imread('lips2.jpg',1)
-img1 = cv2.imread('lips2.jpg',1)
-img = img.astype(np.float64)/255
-x1, y1, z1 = img.shape
+img = cv2.imread('lips2.jpeg',1)
+img1 = cv2.imread('lips2.jpeg',1)
+# x1, y1, z1 = img.shape
+print img.shape
+img = (np.float64(img))/255
 chart = np.zeros((x1,y1), dtype = float)
 min = 8
 max = -8
