@@ -1,13 +1,12 @@
 import cv2
 from PIL import Image
 import numpy as np 
-import tkinter
 from matplotlib import pyplot as plt 
 import colorsys
 
 
-img = cv2.imread('lips2.jpg',1)
-img1 = cv2.imread('lips2.jpg',1)
+img = cv2.imread('mouth.jpg',1)
+img1 = cv2.imread('mouth.jpg',1)
 img = img.astype(np.float64)/255
 x1, y1, z1 = img.shape
 chart = np.zeros((x1,y1), dtype = float)
@@ -33,8 +32,8 @@ for i in range(x1):
 #     print(std[i])
 cr = min
 rr = []
-for i in range(15):
-    cp = 0.060
+for i in range(20):
+    cp = 0.017
     rr.append(cp)
     cp = cp+0.001
 # while(cr>=min and cr<=max):
@@ -60,7 +59,7 @@ for ee in rr:
     boxes = np.zeros(chart.shape,np.uint8)
     for c in contours:
         area = cv2.contourArea(c)
-        if (area>60000):
+        if (area>30000 and area<60000):
             listx.append(c)
     for c in listx:
         cv2.drawContours(img1, [c], -1, (0,255,120), 1)

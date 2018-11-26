@@ -1,11 +1,10 @@
 clc
 clear all
-clc
-clear all;
-close all;
+close all
 
-k = imread('./face.png');
-I=k(:,:,1);
+k = imread('./face3.jpg');
+% yiq_image  = rgb2ntsc(k);
+I=k(:,:,:);
 faceDetect = vision.CascadeObjectDetector();
 bbox=step(faceDetect,I);
 face=imcrop(I,bbox);
@@ -15,6 +14,7 @@ eyeDetect = vision.CascadeObjectDetector('RightEye');
 eyebox=step(eyeDetect,face);
 n=size(eyebox,1);
 e=[];
+d=0;
 for it=1:n
     for j=1:n
         if (j > it)
@@ -55,4 +55,6 @@ for it=1:size(mouthbox,1)
 end
 mouthbox(1,2)=mouthbox(1,2)+noseCentery;
 noseCentery=noseCentery+bbox(2);
-imsave('mouth.jpg',mouth);
+Mouth = mat2gray(mouth);
+imwrite(Mouth,'mouth.jpg');
+% imshow(Mouth);
