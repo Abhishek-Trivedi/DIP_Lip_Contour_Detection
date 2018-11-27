@@ -54,7 +54,7 @@ for ee in rr:
 
     ret,thresh = cv2.threshold(chart,1,255,0)
     immm,contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-    # print(contours)
+    print(contours)
     listx = []
     boxes = np.zeros(chart.shape,np.uint8)
     for c in contours:

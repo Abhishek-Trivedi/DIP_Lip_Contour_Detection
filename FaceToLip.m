@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-k = imread('./face3.jpg');
+k = imread('./abhi.jpg');
 % yiq_image  = rgb2ntsc(k);
 I=k(:,:,:);
 faceDetect = vision.CascadeObjectDetector();
