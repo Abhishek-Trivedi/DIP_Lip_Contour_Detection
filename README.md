@@ -27,3 +27,10 @@ A project to implement efficient lip contour detection.
 
 ### Tasks by each :
 We will give combine effort for the whole algorithm.
+
+### How To Run :
+1) Algorithm Implementation(Lip contour)
+    * mention the input lip image in main.m 
+2) Novelty Feature(face to lip contour)
+    * mention the face image in FaceToLip.m
+    * Output of FaceToLip.m to be given as input in main.m
